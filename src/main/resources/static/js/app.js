@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
 
     let btn = document.getElementById("btnLogin");
     btn.addEventListener("click", login)
 
     function login(event){
-        if (username && password) {
+        //event.preventDefault();
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+
+        if (!username && !password) {
             alert("Llene correctamente los campos");
+            return;
         }
         /*else {
             let user = {
