@@ -1,21 +1,20 @@
 package P1.demo;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import P1.demo.DTOs.LoginRequest;
+import P1.demo.Service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:63342")
 @RestController
 public class FormController {
+    @Autowired
+    private LoginService loginService;
+
     @PostMapping("/login")
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        if (username.isEmpty() || password.isEmpty()) {
-            return "Llene correctamente los campos";
-        }else  {
-            if(username.equals("admin") && password.equals("admin")) {
-                return "Inicio de sesion exitoso";
-            }else  {
-                return "Usuario y/o contraseña incorrectos";
-            }
-        }
+    public ResponseEntity login(@RequestBody LoginRequest loginRequest) {
+        return loginService.login(loginRequest);
     }
 }
