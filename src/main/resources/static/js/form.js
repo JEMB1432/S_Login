@@ -25,10 +25,10 @@ function saveData(event){
     event.preventDefault()
     if(complete){
         let content = {
-            username: "JEE",
-            name: event.target.dataset.name,
-            lastname: event.target.dataset.lastname,
-            email: event.target.dataset.email,
+            username: document.getElementById("username").value,
+            name: document.getElementById("name").value,
+            lastname: document.getElementById("lastname").value,
+            email: document.getElementById("email").value,
         }
 
         fetch('http://localhost:8080/Save', {

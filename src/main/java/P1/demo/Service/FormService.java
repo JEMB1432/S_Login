@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Service
 public class FormService {
     public ResponseEntity saveData(@RequestBody FormRequest formRequest) {
-        return new ResponseEntity<>(formRequest.getUsername(),HttpStatus.OK);
+        return new ResponseEntity<>(formRequest, HttpStatus.OK);
     }
 }
