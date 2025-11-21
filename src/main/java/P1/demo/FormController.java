@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin(origins = "*")
 @RestController
 public class FormController {
     @Autowired
